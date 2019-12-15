@@ -1,0 +1,61 @@
+load("//Config:configs.bzl", "app_binary_configs", "info_plist_substitutions")
+
+apple_asset_catalog(
+    name = "Assets",
+    visibility = ["//App:"],
+    app_icon = "AppIcon",
+    dirs = ["Assets.xcassets"],
+)
+
+apple_resource(
+    name = "Resource",
+    visibility = ["//App:"],
+    files = glob(["**/*.storyboard"]),
+)
+
+apple_binary(
+    name = "MyBuckSampleAppBinary",
+    visibility = [
+        "//App:",
+        "//App/...",
+    ],
+    swift_version = "5",
+    srcs = [
+        "AppDelegate.swift",
+        "ViewController.swift",
+    ],
+    configs = app_binary_configs("MyBuckSampleApp"),
+    deps = [
+        ":Resource",
+        ":Assets",
+    ]
+)
+
+apple_bundle(
+    name = "MyBuckSampleApp",
+    visibility = [
+        "//App:",
+    ],
+    extension = "app",
+    binary = ":MyBuckSampleAppBinary",
+    product_name = "MyBuckSampleApp",
+    info_plist = "Info.plist",
+    info_plist_substitutions = info_plist_substitutions("MyBuckSampleApp"),
+)
+
+apple_package(
+    name = "MyBuckSampleAppPackage",
+    bundle = ":MyBuckSampleApp"
+)
+
+xcode_workspace_config(
+    name = "workspace",
+    workspace_name = "MyBuckSampleApp",
+    src_target = ":MyBuckSampleApp",
+    additional_scheme_actions = {
+        'Build': {
+            'PRE_SCHEME_ACTIONS': ["echo 'Started'"],
+            'POST_SCHEME_ACTIONS': ["echo 'Finished'"],
+        },
+    }
+)
