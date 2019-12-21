@@ -1,0 +1,11 @@
+load("//Config:buck_rule_macros.bzl", "apple_third_party_lib")
+
+apple_third_party_lib(
+    name = "Alamofire",
+    srcs = glob([
+        "Alamofire/**/*.swift",
+    ]),
+    frameworks = [
+        "$SDKROOT/System/Library/Frameworks/CFNetwork.framework",
+    ],
+)

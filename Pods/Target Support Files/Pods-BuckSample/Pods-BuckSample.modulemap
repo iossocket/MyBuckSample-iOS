@@ -1,0 +1,6 @@
+module Pods_BuckSample {
+  umbrella header "Pods-BuckSample-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -28,6 +28,7 @@ apple_binary(
     deps = [
         ":Resource",
         ":Assets",
+        "//Pods:Alamofire",
     ]
 )
 
