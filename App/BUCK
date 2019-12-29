@@ -29,6 +29,9 @@ apple_binary(
         ":Resource",
         ":Assets",
         "//Pods:Alamofire",
+        "//Libraries/ObjcLib:ObjcLib",
+        "//Libraries/xlog:xlog",
+        "//Libraries/mars:PreBuildProjectGeneratorHack"
     ]
 )
 

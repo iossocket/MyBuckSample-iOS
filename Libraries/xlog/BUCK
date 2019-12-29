@@ -1,0 +1,21 @@
+load("//Config:buck_rule_macros.bzl", "first_party_library")
+
+first_party_library(
+    name = "xlog",
+    has_cpp = True,
+    internal_headers = [
+      "Sources/Utils/LogHelper.h",
+      "Sources/Utils/LogUtil.h",
+    ],
+    deps = [
+        "//Libraries/mars:mars",
+    ],
+    frameworks = [
+        "$SDKROOT/System/Library/Frameworks/SystemConfiguration.framework",
+        "$SDKROOT/System/Library/Frameworks/CoreTelephony.framework",
+    ],
+    libraries = [
+        "$SDKROOT/usr/lib/libresolv.9.tbd",
+        "$SDKROOT/usr/lib/libz.tbd",
+    ]
+)

@@ -180,7 +180,7 @@ def first_party_library(
             if not header in (internal_headers or []):
                 exported_headers.append(header)
 
-    lib_test_name = test_name(name)
+    # lib_test_name = test_name(name)
     lib = apple_cxx_lib if has_cpp else apple_lib
     lib(
         name = name,
@@ -193,29 +193,29 @@ def first_party_library(
         extra_xcode_files = extra_xcode_files,
         deps = deps,
         frameworks = frameworks,
-        tests = [":" + lib_test_name],
+        # tests = [":" + lib_test_name],
         warning_as_error = warning_as_error,
         suppress_warnings = suppress_warnings,
         **kwargs
     )
 
-    test_sources = native.glob(["Tests/**/*.swift"])
-    test_headers = None
-    if has_objective_c:
-        test_sources.extend(native.glob(["Tests/**/*.m"]))
-        test_headers = native.glob(["Tests/**/*.h"])
+    # test_sources = native.glob(["Tests/**/*.swift"])
+    # test_headers = None
+    # if has_objective_c:
+    #     test_sources.extend(native.glob(["Tests/**/*.m"]))
+    #     test_headers = native.glob(["Tests/**/*.h"])
 
-    apple_test_lib(
-        name = lib_test_name,
-        srcs = test_sources,
-        headers = test_headers,
-        info_plist = info_plist,
-        info_plist_substitutions = info_plist_substitutions,
-        test_host_app = test_host_app,
-        run_test_separately = run_test_separately,
-        frameworks = test_frameworks,
-        deps = [":" + name] + test_deps,
-        **kwargs)
+    # apple_test_lib(
+    #     name = lib_test_name,
+    #     srcs = test_sources,
+    #     headers = test_headers,
+    #     info_plist = info_plist,
+    #     info_plist_substitutions = info_plist_substitutions,
+    #     test_host_app = test_host_app,
+    #     run_test_separately = run_test_separately,
+    #     frameworks = test_frameworks,
+    #     deps = [":" + name] + test_deps,
+    #     **kwargs)
 
 CXX_SRC_EXT = ["mm", "cpp", "S"]
 def apple_cxx_lib(
