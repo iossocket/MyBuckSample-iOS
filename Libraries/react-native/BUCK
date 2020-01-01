@@ -1,0 +1,15 @@
+load("//Config:buck_rule_macros.bzl", "apple_lib")
+prebuilt_apple_framework(
+    name = "ReactNative",
+    framework = "ReactNative.framework",
+    preferred_linkage = "static",
+    visibility = ["PUBLIC"],
+)
+
+# Every BUCK file needs at least one library with source.
+apple_lib(
+    name = "PreBuildProjectGeneratorHack1",
+    srcs = glob([
+        "BuckSupportFiles/**/*.swift",
+    ]),
+)

@@ -31,7 +31,9 @@ apple_binary(
         "//Pods:Alamofire",
         "//Libraries/ObjcLib:ObjcLib",
         "//Libraries/xlog:xlog",
-        "//Libraries/mars:PreBuildProjectGeneratorHack"
+        "//Libraries/mars:PreBuildProjectGeneratorHack",
+        "//Libraries/react-native:ReactNative",
+        "//Libraries/react-native:PreBuildProjectGeneratorHack1",
     ]
 )
 
