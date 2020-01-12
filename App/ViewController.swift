@@ -10,7 +10,6 @@ import UIKit
 import Alamofire
 import ObjcLib
 import xlog
-import ReactNative
 
 class ViewController: UIViewController {
 
