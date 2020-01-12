@@ -32,6 +32,17 @@ apple_binary(
         "//Libraries/ObjcLib:ObjcLib",
         "//Libraries/xlog:xlog",
         "//Libraries/mars:PreBuildProjectGeneratorHack",
+        "//Libraries/rnapp:RNResource",
+        "//Libraries/rncontainer:PreBuildProjectGeneratorHackRN",
+        "//Libraries/rncontainer:RNContainer"
+    ],
+    frameworks = [
+        "$SDKROOT/System/Library/Frameworks/SystemConfiguration.framework",
+        "$SDKROOT/System/Library/Frameworks/CoreTelephony.framework",
+        "$SDKROOT/System/Library/Frameworks/Accelerate.framework",
+        "$SDKROOT/System/Library/Frameworks/AudioToolbox.framework",
+        "$SDKROOT/System/Library/Frameworks/JavaScriptCore.framework",
+        "$SDKROOT/System/Library/Frameworks/MobileCoreServices.framework",
     ]
 )
 

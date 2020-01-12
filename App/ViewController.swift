@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import ObjcLib
 import xlog
+import RNContainer
 
 class ViewController: UIViewController {
 
@@ -49,5 +50,11 @@ class ViewController: UIViewController {
                 break
             }
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let vc = RNContainer().viewController(byRoute: "App")
+        present(vc, animated: true, completion: nil)
     }
 }

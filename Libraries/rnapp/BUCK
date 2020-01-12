@@ -1,0 +1,5 @@
+apple_resource(
+    name = "RNResource",
+    visibility = ["//App:"],
+    files = glob(["**/*.jsbundle"]),
+)

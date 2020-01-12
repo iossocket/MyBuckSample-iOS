@@ -1,0 +1,6 @@
+framework module RNContainer {
+  umbrella header "RNContainer.h"
+
+  export *
+  module * { export * }
+}
